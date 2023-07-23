@@ -17,6 +17,7 @@ public class Transcript {
     public void addCourseTaken(CourseGrade courseGrade) {
         if (courseGrade != null) {
             courseGradeList.add(courseGrade);
+            // We need two things for cpa calculation; totalPoint(Agırlıklı not) and totalCredit.
             double totalCredit = 0.0;
             double totalPoint = 0.0;
             for (CourseGrade cg : courseGradeList) {
@@ -57,8 +58,7 @@ public class Transcript {
     @Override
     public String toString() {
         String out = "Student ID: " + studentId + "\n";
-        for (CourseGrade cg : courseGradeList)
-        {
+        for (CourseGrade cg : courseGradeList) {
             out += cg.toString() + "\n";
         }
         out += "GPA: " + gpa;

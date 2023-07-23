@@ -1,24 +1,33 @@
 package util;
 
 public enum Grade {
-    A(4),B(3),C(2),D(1),F(0);
+    A("A",4), B("B",3),C("C",2),D("D",1),F("F",0);
 
     private int index;
+    private String stringValue;
 
-    Grade(int index) {
+    Grade(String stringValue,int index) {
         this.index = index;
+        this.stringValue=stringValue;
     }
 
     public int getIndex() {
         return index;
     }
+    public String getStringValue() {
+        return stringValue;
+    }
 
     public void setIndex(int index) {
         this.index = index;
     }
-//To string methodu istenilen şekilde oluşturuldu.
+
+    public void setStringValue( String stringValue){
+        this.stringValue=stringValue;
+    }
+//To string method is created.
     @Override
     public String toString() {
-        return "Grade " + this.name() + " corresponds to numeric grade " + this.index;
+        return "Grade " + this.getStringValue() + " corresponds to numeric grade " + this.index;
     }
 }

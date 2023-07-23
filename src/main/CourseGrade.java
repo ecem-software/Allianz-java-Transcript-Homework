@@ -2,11 +2,10 @@ package main;
 
 import util.Grade;
 
-import java.awt.*;
 
 public class CourseGrade {
 
-    //Default value girildi.
+    //Default values are entered.
     private String courseDepartment = "CENG";
     private int courseCode = 100;
     private int courseCredit = 4;
@@ -35,15 +34,19 @@ public class CourseGrade {
         return courseDepartment;
     }
 
-    //Girilebilecek bölüm isimleri set methodunda sınırlandırıldı
+    //Department names and set methods are determined.
     public void setCourseDepartment(String courseDepartment) {
 
         String[] possibleDepartments = {"CENG", "COMP", "ECE", "ME", "MATH"};
-        for (int i = 0; i < possibleDepartments.length; i++) {
+        int i = 0;
+        for (; i < possibleDepartments.length; i++) {
             if (courseDepartment.toUpperCase().equals(possibleDepartments[i])) {
                 this.courseDepartment = courseDepartment;
-
+                break;
             }
+        }
+        if (i == possibleDepartments.length) {
+            System.out.println("Invalid CourseDepartment, " + courseDepartment.toUpperCase() + " was typed!, default value is assigned to invalid value.");
         }
 
     }
@@ -51,7 +54,8 @@ public class CourseGrade {
     public int getCourseCode() {
         return courseCode;
     }
-    //Girilebilecek CourseCode set methodunda sınırlandırıldı
+
+    //Course code is determined in set method.
     public void setCourseCode(int courseCode) {
         if ((courseCode >= 100) && (courseCode <= 599)) {
             this.courseCode = courseCode;
@@ -64,6 +68,7 @@ public class CourseGrade {
         return courseCredit;
     }
 
+    // Course Credit is determined. It can be only 3 or 4.
     public void setCourseCredit(int courseCredit) {
         if ((courseCredit == 3) || (courseCredit == 4)) {
             this.courseCredit = courseCredit;
@@ -109,6 +114,6 @@ public class CourseGrade {
 
     @Override
     public String toString() {
-        return "Department: " + courseDepartment + " CourseCode: " + courseCode + " Credit: " + courseCredit + " Grade: " + gradeTaken.name();
+        return "Department: " + courseDepartment + " CourseCode: " + courseCode + " Credit: " + courseCredit + " Grade: " + gradeTaken.getStringValue();
     }
 }
