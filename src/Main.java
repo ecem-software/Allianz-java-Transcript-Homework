@@ -12,7 +12,7 @@ public class Main {
         CourseGrade courseGrade= new CourseGrade("ECE");
         CourseGrade courseGrade2= new CourseGrade("CENG",301);
         CourseGrade courseGrade3= new CourseGrade("ARCH",401,3);
-        CourseGrade courseGrade4= new CourseGrade("COMP",701,4, Grade.B);
+        CourseGrade courseGrade4= new CourseGrade("COMP",501,4, Grade.B);
 
 
         Transcript transcript= new Transcript(1234);
