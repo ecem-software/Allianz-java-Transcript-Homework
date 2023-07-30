@@ -55,13 +55,13 @@ public class GenerateTranscript {
         File file=new File(Filename);
 
         try {
-            Scanner fileScanner = new Scanner(file);
-            int studentId = Integer.parseInt(fileScanner.nextLine().trim());
+            Scanner scanFile = new Scanner(file);
+            int studentId = Integer.parseInt(scanFile.nextLine().trim());
             Transcript transcript = new Transcript(studentId);
 
-            while (fileScanner.hasNext()) {
-                String line = fileScanner.nextLine();
-                String[] LectureInfo = line.split(" ");
+            while (scanFile.hasNext()) {
+                String courseRecord = scanFile.nextLine();
+                String[] LectureInfo = courseRecord.split(" ");
                 String department = LectureInfo[0];
                 int courseCode = Integer.parseInt(LectureInfo[1]);
                 int courseCredit = Integer.parseInt(LectureInfo[2]);
@@ -72,7 +72,7 @@ public class GenerateTranscript {
                 transcript.addCourseTaken(courseGrade);
             }
 
-            fileScanner.close();
+            scanFile.close();
             System.out.println(transcript);
         } catch(FileNotFoundException e){
             System.out.println("Error: File not found.");
